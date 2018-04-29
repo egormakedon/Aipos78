@@ -1,0 +1,11 @@
+pascal-rest-service/.idea
+pascal-rest-service/target
+pascal-rest-service/out
+pascal-rest-service/*.iml
+pascal-rest-service/logs
+
+pascal-mvc-service/.idea
+pascal-mvc-service/target
+pascal-mvc-service/out
+pascal-mvc-service/*.iml
+pascal-mvc-service/logs
