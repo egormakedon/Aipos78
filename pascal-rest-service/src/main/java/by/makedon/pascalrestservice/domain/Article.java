@@ -24,11 +24,11 @@ public class Article {
     @Column(name = "date")
     private Date date;
 
-    @ManyToOne(cascade = {CascadeType.ALL})
+    @ManyToOne
     @JoinColumn(name = "fk_author_id")
     private Author author;
 
-    @ManyToOne(cascade = {CascadeType.ALL})
+    @ManyToOne
     @JoinColumn(name = "fk_resource_id")
     private Resource resource;
 }
