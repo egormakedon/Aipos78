@@ -63,6 +63,8 @@
     </dependencies>
 
     <build>
+        <finalName>pascal-rest-service</finalName>
+
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

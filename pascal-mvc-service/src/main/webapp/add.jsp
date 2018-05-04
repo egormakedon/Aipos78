@@ -9,20 +9,28 @@
     </head>
 
     <body>
-        <form action="<c:url value="/controller/addArticle"/>" method="post">
-            <h4>Title:</h4>
-            <input type="text" name="title" style="width: 200px" required><br><br>
 
-            <h4>Body:</h4>
-            <textarea type="text" name="body" rows="35" cols="100"></textarea><br><br>
+        <div itemscope itemtype="http://schema.org/Article">
+            <form action="<c:url value="/controller/addArticle"/>" method="post">
+                <h1>Title:</h1>
+                <input itemprop="title" type="text" name="title" style="width: 200px" required> <br> <br>
 
-            <input type="submit" value="add">
-        </form>
+                <h3>Body:</h3>
+                <textarea itemprop="body" type="text" name="body" rows="35" cols="100"></textarea> <br> <br>
+
+                <div itemscope itemtype="http://schema.org/Thing">
+                    <input itemprop="name" type="submit" value="add">
+                </div>
+            </form>
+        </div>
 
         <br>
 
-        <form action="<c:url value="/controller/indexForward"/>" method="get">
-            <input type="submit" value="back to index">
-        </form>
+        <div itemscope itemtype="http://schema.org/Thing">
+            <form action="<c:url value="/controller/indexForward"/>" method="get">
+                <input itemprop="name" type="submit" value="back to index">
+            </form>
+        </div>
+
     </body>
 </html>

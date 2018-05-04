@@ -9,24 +9,32 @@
   </head>
 
   <body>
-    <form action="<c:url value="/controller/addForward"/>" method="get">
-      <input type="submit" value="add">
-    </form>
+
+    <div itemscope itemtype="http://schema.org/Thing">
+      <form action="<c:url value="/controller/addForward"/>" method="get">
+        <input type="submit" itemprop="name" value="add">
+      </form>
+    </div>
 
     <br>
 
-    <form action="<c:url value="/controller/takeTitleList"/>" method="get">
-      <input type="submit" value="refresh">
-    </form>
+    <div itemscope itemtype="http://schema.org/Thing">
+      <form action="<c:url value="/controller/takeTitleList"/>" method="get">
+        <input itemprop="name" type="submit" value="refresh">
+      </form>
+    </div>
 
     <br>
 
-    <form action="<c:url value="/controller/takeArticle"/>" method="get">
-      <div style="overflow-y: scroll; width: 120px; height: 500px">
-        <c:forEach items="${titleList}" var="title">
-          <input type="submit" name="title" value="${title}"><br>
-        </c:forEach>
-      </div>
-    </form>
+    <div itemscope itemtype="http://schema.org/Thing">
+      <form action="<c:url value="/controller/takeArticle"/>" method="get">
+        <div style="overflow-y: scroll; width: 120px; height: 500px">
+          <c:forEach items="${titleList}" var="title">
+            <input itemprop="name" type="submit" name="title" value="${title}"><br>
+          </c:forEach>
+        </div>
+      </form>
+    </div>
+
   </body>
 </html>

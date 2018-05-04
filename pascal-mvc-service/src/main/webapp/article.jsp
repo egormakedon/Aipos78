@@ -9,36 +9,48 @@
     </head>
 
     <body>
-        <h3>Title:</h3> ${requestScope.article.title}
-        <h3>Date:</h3> ${requestScope.article.date}
-        <h3>Author name:</h3> ${requestScope.article.author.name}
-        <h3>Author surname:</h3> ${requestScope.article.author.surname}
-        <h3>Country:</h3> ${requestScope.article.author.country}
-        <h3>Resource name:</h3> ${requestScope.article.resource.name}
-        <h3>url:</h3> ${requestScope.article.resource.url}
 
-        <form action="<c:url value="/controller/updateArticle"/>" method="post">
-            <input type="hidden" name="title" value="${requestScope.article.title}">
+        <div itemscope itemtype="http://schema.org/Article">
+            <h1> Title: <span itemprop="title"> ${requestScope.article.title} </span> </h1>
+            <h3> Date: <span itemprop="date"> ${requestScope.article.date} </span> </h3>
 
-            <h3>Body:</h3>
-            <textarea type="text" name="body" rows="25" cols="230">${requestScope.article.body}</textarea><br><br>
+            <div itemprop="author" itemscope itemtype="http://schema.org/Article">
+                <h3> Author name: <span itemprop="name"> ${requestScope.article.author.name} </span> </h3>
+                <h3> Author surname: <span itemprop="surname"> ${requestScope.article.author.surname} </span> </h3>
+                <h3> Country: <span itemprop="country"> ${requestScope.article.author.country} </span> </h3>
+            </div>
 
-            <br>
+            <div itemprop="author" itemscope itemtype="http://schema.org/Resource">
+                <h3> Resource name: <span itemprop="name"> ${requestScope.article.resource.name} </span> </h3>
+                <h3> url: <span itemprop="url"> ${requestScope.article.resource.url} </span> </h3>
+            </div>
 
-            <input type="submit" value="update">
-        </form>
+            <form action="<c:url value="/controller/updateArticle"/>" method="post">
+                <input type="hidden" name="title" value="${requestScope.article.title}">
+
+                <h3> Body: </h3>
+                <textarea type="text" name="body" rows="25" cols="230" itemprop="body"> ${requestScope.article.body} </textarea> <br> <br>
+
+                <input type="submit" value="update">
+            </form>
+        </div>
 
         <br>
 
-        <form action="<c:url value="/controller/removeArticle"/>" method="post">
-            <input type="hidden" value="${requestScope.article.title}" name="title">
-            <input type="submit" value="remove">
-        </form>
+        <div itemscope itemtype="http://schema.org/Thing">
+            <form action="<c:url value="/controller/removeArticle"/>" method="post">
+                <input type="hidden" value="${requestScope.article.title}" name="title">
+                <input itemprop="name" type="submit" value="remove">
+            </form>
+        </div>
 
         <br>
 
-        <form action="<c:url value="/controller/indexForward"/>" method="get">
-            <input type="submit" value="back to index">
-        </form>
+        <div itemscope itemtype="http://schema.org/Thing">
+            <form action="<c:url value="/controller/indexForward"/>" method="get">
+                <input itemprop="name" type="submit" value="back to index">
+            </form>
+        </div>
+
     </body>
 </html>
